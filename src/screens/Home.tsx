@@ -1,10 +1,10 @@
-import { registerRootComponent } from "expo";
 import { StatusBar } from "expo-status-bar";
+import React from "react";
 import { StyleSheet, View } from "react-native";
 
-import { HelloWorld } from "./components/HelloWorld";
+import { HelloWorld } from "../components/HelloWorld";
 
-function App() {
+export function Home() {
   return (
     <View style={styles.container}>
       <HelloWorld />
@@ -12,8 +12,6 @@ function App() {
     </View>
   );
 }
-
-registerRootComponent(App);
 
 const styles = StyleSheet.create({
   container: {
