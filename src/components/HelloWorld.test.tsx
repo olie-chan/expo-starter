@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react-native";
 
-import { HelloWorld } from ".";
+import { HelloWorld } from "./HelloWorld";
 
 test("it displays 'Hello World'", () => {
   const { getByText } = render(<HelloWorld />);
