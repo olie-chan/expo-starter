@@ -10,11 +10,7 @@ type Todo = {
   completed: boolean;
 };
 const todosEndpoint = "https://jsonplaceholder.typicode.com/todos";
-const wait = (durationInMs: number = 1000) =>
-  new Promise((resolve) => setTimeout(resolve, durationInMs));
-const todosResource = wrapPromise<Todo[]>(
-  wait(3000).then(() => fetchWrapper.get(todosEndpoint))
-);
+const todosResource = wrapPromise<Todo[]>(fetchWrapper.get(todosEndpoint));
 
 export function TodoList() {
   const todos = todosResource.read();
