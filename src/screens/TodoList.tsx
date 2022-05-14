@@ -1,6 +1,6 @@
 import { StyleSheet, FlatList, View, Text } from "react-native";
 
-import { fetchWrapper } from "../util/fetch";
+import { fetchWrapper } from "../util/fetchWrapper";
 import { wrapPromise } from "../util/wrapPromise";
 
 type Todo = {
