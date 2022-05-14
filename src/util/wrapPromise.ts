@@ -12,7 +12,7 @@ export function wrapPromise<T>(promise: Promise<T>) {
       response = err;
     });
 
-  const read = () => {
+  const read = (): T => {
     switch (status) {
       case "pending":
         throw suspender;
@@ -20,7 +20,7 @@ export function wrapPromise<T>(promise: Promise<T>) {
         throw response;
       case "success":
       default:
-        return response;
+        return response as T;
     }
   };
 
