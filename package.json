@@ -11,6 +11,7 @@
     "lint": "eslint --ext .tsx --ext .ts src/",
     "lint:fix": " eslint ./src/**/*.tsx --fix",
     "test": "jest",
+    "test:watch": "jest --watch",
     "prepare": "husky install"
   },
   "dependencies": {
