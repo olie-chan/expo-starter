@@ -2,6 +2,7 @@ This project was built using [Expo](https://docs.expo.dev/).
 
 It includes the following libraries:
 - [React Navigation v6](https://reactnavigation.org/)
+- [SWR](https://swr.vercel.app/)
 
 
 ### Prerequisites
