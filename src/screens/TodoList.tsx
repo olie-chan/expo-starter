@@ -1,7 +1,7 @@
 import { StyleSheet, FlatList, View, Text } from "react-native";
+import useSWR from "swr";
 
 import { fetchWrapper } from "../util/fetchWrapper";
-import { wrapPromise } from "../util/wrapPromise";
 
 type Todo = {
   userId: number;
@@ -9,11 +9,15 @@ type Todo = {
   title: string;
   completed: boolean;
 };
-const todosEndpoint = "https://jsonplaceholder.typicode.com/todos";
-const todosResource = wrapPromise<Todo[]>(fetchWrapper.get(todosEndpoint));
+const baseUrl = "https://jsonplaceholder.typicode.com";
 
+function useTodos() {
+  return useSWR<Todo[]>("/todos", (path: string) => fetchWrapper.get(`${baseUrl}${path}`), {
+    suspense: true,
+  });
+}
 export function TodoList() {
-  const todos = todosResource.read();
+  const { data: todos } = useTodos();
 
   const renderItem = ({ item }: { item: Todo }) => (
     <View style={styles.itemContainer}>
@@ -23,13 +27,7 @@ export function TodoList() {
       </Text>
     </View>
   );
-  return (
-    <FlatList
-      keyExtractor={(item) => String(item.id)}
-      data={todos}
-      renderItem={renderItem}
-    />
-  );
+  return <FlatList keyExtractor={(item) => String(item.id)} data={todos} renderItem={renderItem} />;
 }
 
 const styles = StyleSheet.create({

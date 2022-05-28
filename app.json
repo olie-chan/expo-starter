@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "my-testing-app",
-    "slug": "my-testing-app",
+    "name": "expo-starter",
+    "slug": "expo-starter",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
